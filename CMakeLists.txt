@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 
 # Set the project name to your project name, my project isn't very descriptive
-project(myproject CXX)
+project(ETGVA)
 include(cmake/StandardProjectSettings.cmake)
 include(cmake/PreventInSourceBuilds.cmake)
 
@@ -31,8 +31,8 @@ include(cmake/CompilerWarnings.cmake)
 set_project_warnings(project_warnings)
 
 # sanitizer options if supported by compiler
-include(cmake/Sanitizers.cmake)
-enable_sanitizers(project_options)
+#include(cmake/Sanitizers.cmake)
+#enable_sanitizers(project_options)
 
 # enable doxygen
 include(cmake/Doxygen.cmake)
@@ -42,7 +42,7 @@ enable_doxygen()
 include(cmake/StaticAnalyzers.cmake)
 
 option(BUILD_SHARED_LIBS "Enable compilation of shared libraries" OFF)
-option(ENABLE_TESTING "Enable Test Builds" ON)
+option(ENABLE_TESTING "Enable Test Builds" OFF)
 option(ENABLE_FUZZING "Enable Fuzzing Builds" OFF)
 
 # Very basic PCH example
@@ -60,7 +60,7 @@ if(ENABLE_PCH)
     <utility>)
 endif()
 
-option(ENABLE_CONAN "Use Conan for dependency management" ON)
+option(ENABLE_CONAN "Use Conan for dependency management" OFF)
 if(ENABLE_CONAN)
   include(cmake/Conan.cmake)
   run_conan()
