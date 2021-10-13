@@ -30,8 +30,11 @@ set_project_warnings(project_warnings)
 # allow for static analysis options
 include(cmake/StaticAnalyzers.cmake)
 
+# allow for static analysis options
+include(cmake/Googletest.cmake)
+
 option(BUILD_SHARED_LIBS "Enable compilation of shared libraries" OFF)
-option(ENABLE_TESTING "Enable Test Builds" OFF)
+option(ENABLE_TESTING "Enable Test Builds" ON)
 
 # Very basic PCH example
 option(ENABLE_PCH "Enable Precompiled Headers" OFF)
@@ -50,7 +53,7 @@ endif()
 
 if(ENABLE_TESTING)
   enable_testing()
-  message("Building Tests. Be sure to check out test/constexpr_tests for constexpr testing")
+  message("Building Google Tests.") 
   add_subdirectory(test)
 endif()
 
