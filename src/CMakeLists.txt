@@ -70,6 +70,7 @@ add_definitions (
 target_link_libraries (
   ${DATAMODEL} 
   ${OpenSplice_LIBRARIES}
+  ${Boost_LIBRARIES}
 )
 
 target_link_libraries (${PUB_EXE}

@@ -25,7 +25,7 @@ configure_linker(project_options)
 
 # standard compiler warnings
 include(cmake/CompilerWarnings.cmake)
-#set_project_warnings(project_warnings)
+set_project_warnings(project_warnings)
 
 # allow for static analysis options
 include(cmake/StaticAnalyzers.cmake)
@@ -35,6 +35,9 @@ include(cmake/Googletest.cmake)
 
 # Set up the Opensplice
 include(cmake/FindOpenSplice.cmake)
+
+# Set up the Opensplice
+include(cmake/FindBoost.cmake)
 
 option(BUILD_SHARED_LIBS "Enable compilation of shared libraries" OFF)
 option(ENABLE_TESTING "Enable Test Builds" ON)

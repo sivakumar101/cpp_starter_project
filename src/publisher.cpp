@@ -19,7 +19,13 @@
  *
  */
 
+#include <iostream>
+#include <iterator>
+#include <algorithm>
+
 #include "implementation.h"
+#include <boost/version.hpp>
+#include <boost/lambda/lambda.hpp>
 
 /**
  * @addtogroup examplesdcpsHelloWorldisocpp
@@ -30,5 +36,20 @@
 
 int EXAMPLE_MAIN (int argc, char *argv[])
 {
-  return examples::dcps::HelloWorld::isocpp::publisher(argc, argv);
+    std::cout << "==========================================\n";
+    std::cout << "Using Boost "
+    << BOOST_VERSION / 100000     << "."  // major version
+    << BOOST_VERSION / 100 % 1000 << "."  // minor version
+    << BOOST_VERSION % 100                // patch level
+    << std::endl;
+    std::cout << "==========================================\n";
+
+    std::vector<int> v{1, 3, 2, 5, 6};
+
+    
+    std::cout << "============= PRINT VECTOR VALUES ==========================\n";
+    std::for_each(v.begin(), v.end(),
+        std::cout << boost::lambda::_1 << "\n");
+
+    return examples::dcps::HelloWorld::isocpp::publisher(argc, argv);
 }
