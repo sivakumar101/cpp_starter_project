@@ -20,7 +20,7 @@
  *
  */
 
-#include "implementation.hpp"
+#include "implementation.h"
 
 /**
  * @addtogroup examplesdcpsHelloWorldisocpp

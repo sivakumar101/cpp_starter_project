@@ -20,7 +20,7 @@
  *
  */
 
-#include "implementation.hpp"
+#include "implementation.h"
 #include "common/example_utilities.h"
 
 #include <iostream>
@@ -99,13 +99,12 @@ int publisher(int argc, char *argv[])
 	while (num_msg <= 10)
 	{
             /** A sample is created and then written. */
-            HelloWorldData::Msg msgInstance(1, "Hello World", num_msg);
+            HelloWorldData::Msg msgInstance(1, "Hello World");
             dw << msgInstance;
 
             std::cout << "=== [Publisher] writing a message containing :" << std::endl;
             std::cout << "    userID  : " << msgInstance.userID() << std::endl;
             std::cout << "    Message : \"" << msgInstance.message() << "\"" << std::endl;
-            std::cout << "    Message ID : \"" << msgInstance.number() << "\"" << std::endl;
 	    std::cout << std::endl;
 
 	    num_msg++;
@@ -228,7 +227,6 @@ int subscriber(int argc, char *argv[])
                     std::cout << "=== [Subscriber] message received :" << std::endl;
                     std::cout << "    userID  : " << sample->data().userID() << std::endl;
                     std::cout << "    Message : \"" << sample->data().message() << "\"" << std::endl;
-                    std::cout << "    Message ID : \"" << sample->data().number() << "\"" << std::endl;
 		    std::cout << std::endl;
 
 		    if (msg_count > 9)

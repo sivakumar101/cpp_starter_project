@@ -26,11 +26,11 @@ include_directories(
 #endforeach(idl)
 
 SET(outsources
-    HelloWorldData.cpp
-    HelloWorldData.h
-    HelloWorldDataSplDcps.cpp
-    HelloWorldData_DCPS.hpp
-    HelloWorldDataSplDcps.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/HelloWorldData.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/HelloWorldData.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/HelloWorldDataSplDcps.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/HelloWorldData_DCPS.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/HelloWorldDataSplDcps.h
 )
 
 message(STATUS ${OpenSplice_IDLGEN_BINARY})
@@ -40,6 +40,7 @@ ADD_CUSTOM_COMMAND(
     OUTPUT ${outsources}
     COMMAND ${OpenSplice_IDLGEN_BINARY} 
     ARGS -l isocpp2 ${CMAKE_CURRENT_SOURCE_DIR}/idl/HelloWorldData.idl
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 set (PUB_SOURCES
