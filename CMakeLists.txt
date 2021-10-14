@@ -34,10 +34,10 @@ include(cmake/StaticAnalyzers.cmake)
 include(cmake/Googletest.cmake)
 
 # Set up the Opensplice
-include(cmake/FindOpenSplice.cmake)
+include(cmake/Opensplice.cmake)
 
 # Set up the Opensplice
-include(cmake/FindBoost.cmake)
+include(cmake/Boost.cmake)
 
 option(BUILD_SHARED_LIBS "Enable compilation of shared libraries" OFF)
 option(ENABLE_GOOGLETEST "Enable Test Builds" OFF)
