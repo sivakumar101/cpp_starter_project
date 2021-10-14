@@ -1,10 +1,6 @@
-cmake_minimum_required (VERSION 2.8)
-set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_MODULE_PATH ../cmake)
-project (dds-tutorial)
 
 include (MacroOpenSplice)
-include (osmacros)
 
 include_directories(
   ${PROJECT_SOURCE_DIR}
