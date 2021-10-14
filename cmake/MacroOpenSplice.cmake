@@ -1,15 +1,3 @@
-##############################################################################
-# OpenSplice_IDLGEN(idlfilename)
-#
-# Macro to generate OpenSplice DDS sources from a given idl file with the 
-# data structures.
-# You must include the extension .idl in the name of the data file.
-#
-##############################################################################
-# Courtersy of Ivan Galvez Junquera <ivgalvez@gmail.com>
-##############################################################################
-
-
 # Macro to create a list with all the generated source files for a given .idl filename
 MACRO (DEFINE_OpenSplice_SOURCES idlfilename)
 	SET(outsources)
