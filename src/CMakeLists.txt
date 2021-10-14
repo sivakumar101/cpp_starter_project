@@ -6,24 +6,10 @@ project (dds-tutorial)
 include (MacroOpenSplice)
 include (osmacros)
 
-find_package (OpenSplice REQUIRED)
-
 include_directories(
   ${PROJECT_SOURCE_DIR}
   ${OpenSplice_INCLUDE_DIRS}
 )
-
-#set (idls HelloWorldData.idl)
-
-#foreach(idl ${idls})
-#	OpenSplice_IDLGEN (${idl})
-#	string (REGEX REPLACE "\(.*\).idl" "./\\1.cpp" VARS_1 ${idl})
-#	string (REGEX REPLACE "\(.*\).idl" "./\\1.h" VARS_2 ${idl})
-#	string (REGEX REPLACE "\(.*\).idl" "./\\1_DCPS.hpp" VARS_3 ${idl})
-#	string (REGEX REPLACE "\(.*\).idl" "./\\1SplDcps.cpp" VARS_7 ${idl})
-#	string (REGEX REPLACE "\(.*\).idl" "./\\1SplDcps.h" VARS_8 ${idl})
-#	set(OpenSplice_DATAMODEL ${OpenSplice_DATAMODEL} ${VARS_1} ${VARS_2} ${VARS_3} ${VARS_4} ${VARS_5} ${VARS_6} ${VARS_7} ${VARS_8} ${VARS_9})
-#endforeach(idl)
 
 SET(outsources
     ${CMAKE_CURRENT_SOURCE_DIR}/HelloWorldData.cpp
@@ -32,9 +18,6 @@ SET(outsources
     ${CMAKE_CURRENT_SOURCE_DIR}/HelloWorldData_DCPS.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/HelloWorldDataSplDcps.h
 )
-
-message(STATUS ${OpenSplice_IDLGEN_BINARY})
-message(STATUS ${CMAKE_CURRENT_SOURCE_DIR}/idl/HelloWorldData.idl)
 
 ADD_CUSTOM_COMMAND(
     OUTPUT ${outsources}
@@ -59,7 +42,6 @@ set (DATAMODEL datamodel)
 add_executable (${PUB_EXE} ${PUB_SOURCES})
 add_executable (${SUB_EXE} ${SUB_SOURCES})
 
-message(${outsources})
 add_library (${DATAMODEL} SHARED ${outsources})
 
 add_definitions (

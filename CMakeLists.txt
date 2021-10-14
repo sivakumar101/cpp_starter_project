@@ -40,7 +40,7 @@ include(cmake/FindOpenSplice.cmake)
 include(cmake/FindBoost.cmake)
 
 option(BUILD_SHARED_LIBS "Enable compilation of shared libraries" OFF)
-option(ENABLE_TESTING "Enable Test Builds" ON)
+option(ENABLE_GOOGLETEST "Enable Test Builds" OFF)
 
 # Very basic PCH example
 option(ENABLE_PCH "Enable Precompiled Headers" OFF)
@@ -57,9 +57,8 @@ if(ENABLE_PCH)
     <utility>)
 endif()
 
-if(ENABLE_TESTING)
-  enable_testing()
-  message("Building Google Tests.") 
+if(ENABLE_GOOGLETEST)
+  message("GoogleTest is enabled..")
   add_subdirectory(test)
 endif()
 
