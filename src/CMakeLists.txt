@@ -45,8 +45,7 @@ add_definitions (
  ${DEFINITIONS}
 )
 
-target_link_libraries (
-  ${GVS_SERVICE_RESOURCE} 
+target_link_libraries (${GVA_SERVICE_RESOURCE} 
   ${OpenSplice_LIBRARIES}
   ${Boost_LIBRARIES}
 )
