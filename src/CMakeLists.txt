@@ -33,7 +33,7 @@ set (SUB_SOURCES
 
 set (PUB_EXE ttpub)
 set (SUB_EXE ttsub)
-set (DATAMODEL datamodel)
+set (GVA_SERVICE_RESOURCE gva_service_resource)
 
 add_executable (${PUB_EXE} ${PUB_SOURCES})
 add_executable (${SUB_EXE} ${SUB_SOURCES})
@@ -53,10 +53,10 @@ target_link_libraries (
 
 target_link_libraries (${PUB_EXE}
  ${OpenSplice_LIBRARIES}
- ${DATAMODEL} 
+ ${GVA_SERVICE_RESOURCE} 
 )
 
 target_link_libraries (${SUB_EXE}
  ${OpenSplice_LIBRARIES}
- ${DATAMODEL}
+ ${GVA_SERVICE_RESOURCE}
 )
