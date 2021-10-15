@@ -34,7 +34,10 @@ RUN    dnf install -y git  \
     && dnf install -y less \
     && dnf install -y gcc \
     && dnf install -y gcc-c++ \
-    && dnf install -y cmake
+    && dnf install -y cmake \
+    && dnf --enablerepo=powertools install -y cppcheck \
+    && dnf install -y llvm-toolset
+
 ##################################################################
 
 ##################################################################
