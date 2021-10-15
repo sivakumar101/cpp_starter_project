@@ -38,7 +38,7 @@ set (GVA_SERVICE_RESOURCE gva_service_resource)
 add_executable (${PUB_EXE} ${PUB_SOURCES})
 add_executable (${SUB_EXE} ${SUB_SOURCES})
 
-add_library (${DATAMODEL} SHARED ${outsources})
+add_library (${GVA_SERVICE_RESOURCE} SHARED ${outsources})
 
 add_definitions (
  ${OpenSplice_DEFINITIONS}
@@ -46,7 +46,7 @@ add_definitions (
 )
 
 target_link_libraries (
-  ${DATAMODEL} 
+  ${GVS_SERVICE_RESOURCE} 
   ${OpenSplice_LIBRARIES}
   ${Boost_LIBRARIES}
 )
