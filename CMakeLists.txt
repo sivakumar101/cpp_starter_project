@@ -55,8 +55,14 @@ if(ENABLE_GOOGLETEST)
   # Set up the google test unit framework
   include(cmake/Googletest.cmake)
 
-  add_subdirectory(test)
+  message("#############################################")
+  message("Warning: Add the google test directories here")
+  message("#############################################")
+  #add_subdirectory(test)
 endif()
 
-add_subdirectory(src)
+message("#############################################################################")
+message("Warning: Add the sub-directories here after we decide on the folder structure")
+message("#############################################################################")
+#add_subdirectory(src)
 
