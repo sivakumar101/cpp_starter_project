@@ -1,38 +1,22 @@
-##############################################################################
-# Try to find OpenSplice
-# Once done this will define:
-#
-#  OpenSplice_FOUND - system has OpenSplice.
-#  OpenSplice_INCLUDE_DIRS - the OpenSplice include directory.
-#  OpenSplice_LIBRARIES - Link these to use OpenSplice.
-#  OpenSplice_IDLGEN_BINARY - Binary for the IDL compiler.
-#
-# You need the environment variable $OSPL_HOME to be set to your OpenSplice
-# installation directory.
-# This script also includes the MacroOpenSplice.cmake script, which is useful
-# for generating code from your idl.
-#
-##############################################################################
-# Courtesy of Ivan Galvez Junquera <ivgalvez@gmail.com>
-##############################################################################
+# Linux specific setting for the Opensplice libraries and headers.
+# The application will be dynamically linking to the opensplice libraries.
+
+if (UNIX)
 FIND_PATH(OpenSplice_INCLUDE_DIR
 NAMES
 ccpp_dds_dcps.h
-#dds_dcps.idl
 PATHS
 $ENV{OSPL_HOME}/install/HDE/$ENV{SPLICE_TARGET}/include/dcps/C++/SACPP
-#$ENV{OSPL_HOME}/etc/idl/
 )
 
 SET(OpenSplice_INCLUDE_DIRS
-	#${OpenSplice_INCLUDE_DIR}
-$ENV{OSPL_HOME}/install/HDE/$ENV{SPLICE_TARGET}/include
-$ENV{OSPL_HOME}/install/HDE/$ENV{SPLICE_TARGET}/include/sys
-$ENV{OSPL_HOME}/etc/idl/
+$ENV{OSPL_HOME}/include
+$ENV{OSPL_HOME}/include/sys
 $ENV{OSPL_HOME}/include/dcps/C++/isocpp2
+$ENV{OSPL_HOME}/etc/idl/
 )
 
-# Find libraries
+# Find all the required libraries
 FIND_LIBRARY(DCPSGAPI_LIBRARY
 NAMES
 dcpsgapi
@@ -84,8 +68,7 @@ ${DDSKERNEL_LIBRARY}
 ${DCPSISOCPP_LIBRARY}
 )
 
-# Binary for the IDL compiler
-#SET (OpenSplice_IDLGEN_BINARY $ENV{OSPL_HOME}/exec/$ENV{SPLICE_TARGET}/idlpp -I $ENV{OSPL_HOME}/etc/idl/)
+# Set the IDLGEN binary in case if we plan to do the IDL to CPP conversion from the cmake.
 SET (OpenSplice_IDLGEN_BINARY $ENV{OSPL_HOME}/bin/idlpp -I $ENV{OSPL_HOME}/etc/idlpp)
 
 IF (OpenSplice_INCLUDE_DIRS AND OpenSplice_LIBRARIES)
@@ -101,4 +84,4 @@ ENDIF (OpenSplice_FIND_REQUIRED)
 ENDIF (OpenSplice_FOUND)
 
 MARK_AS_ADVANCED(OpenSplice_INCLUDE_DIRS OpenSplice_LIBRARIES OpenSplice_IDLGEN_BINARY)
-#INCLUDE (MacroOpenSplice)
+endif()

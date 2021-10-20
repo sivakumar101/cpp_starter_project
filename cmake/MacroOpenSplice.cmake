@@ -9,16 +9,11 @@ MACRO (DEFINE_OpenSplice_SOURCES idlfilename)
 ENDMACRO(DEFINE_OpenSplice_SOURCES)
 
 MACRO (OpenSplice_IDLGEN idlfilename)
-    message("now in OpenSplice_IDLGEN")
     GET_FILENAME_COMPONENT(it ${idlfilename} ABSOLUTE)
     GET_FILENAME_COMPONENT(idlfilename ${idlfilename} NAME)
-    message("OpenSplice_IDLGEN_BINARY is")
-    message(${OpenSplice_IDLGEN_BINARY})
 
     DEFINE_OpenSplice_SOURCES(${ARGV})
-    message("outsources is")
-    message(${outsources})
-   
+
     add_custom_command (OUTPUT  ${outsources}
         COMMAND ${OpenSplice_IDLGEN_BINARY}
         ARGS -l isocpp2 ${idlfilename}

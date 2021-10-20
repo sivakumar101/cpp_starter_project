@@ -1,5 +1,6 @@
-# from here:
-#
+# These are the settings from this repo below which advocates C++ best practices. This
+# might need update to suit to the GVA project as we go along.
+# We might not support clang so we need to get rid of the clang section if thats the case.
 # https://github.com/lefticus/cppbestpractices/blob/master/02-Use_the_Tools_Available.md
 
 function(set_project_warnings project_name)
